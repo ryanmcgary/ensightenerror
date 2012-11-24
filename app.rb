@@ -4,7 +4,7 @@ require 'evma_httpserver'
 
 class Handler  < EventMachine::Connection
   include EM::HttpServer
-  include EM::Deferrable
+  # include EM::Deferrable
 
   def process_http_request
     resp = EM::DelegatedHttpResponse.new( self )
@@ -12,15 +12,15 @@ class Handler  < EventMachine::Connection
     resp.send_response
    
     
-    EM.add_timer(1) do
-      puts @http_query_string    
-    end
+    # EM.add_timer(1) do
+    #   puts @http_query_string    
+    # end
       
   end
 
 end
 
-EM.epoll
+# EM.epoll
 EM.run{
   host, port = "0.0.0.0", ENV['PORT']
   puts "Starting on #{host}:#{port}..."

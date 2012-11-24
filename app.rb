@@ -22,6 +22,8 @@ end
 
 EM.epoll
 EM.run{
-  EM.start_server("0.0.0.0", 5000, Handler)
-  puts "Listening..."
+  host, port = "0.0.0.0", ENV['PORT']
+  puts "Starting on #{host}:#{port}..."
+  EventMachine::start_server(host, port, Handler)
 }
+

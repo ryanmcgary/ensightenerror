@@ -1,5 +1,5 @@
-# require 'rubygems'
-require 'eventmachine-le'
+require 'rubygems'
+require 'eventmachine'
 require 'evma_httpserver'
 
 class Handler  < EventMachine::Connection

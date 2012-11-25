@@ -1,12 +1,66 @@
+GIT
+  remote: git://github.com/igrigorik/em-http-request.git
+  revision: 9971b23e92b2abb5a3657bebac23eb7ffc158dee
+  specs:
+    em-http-request (1.0.3)
+      addressable (>= 2.2.3)
+      cookiejar
+      em-socksify
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (>= 0.5.3)
+
+GIT
+  remote: git://github.com/igrigorik/em-synchrony.git
+  revision: fe592a4b9b5345bca329477cb8f2f8d186b6fc7f
+  specs:
+    em-synchrony (1.0.2)
+      eventmachine (>= 1.0.0.beta.1)
+
+GIT
+  remote: git://github.com/postrank-labs/goliath.git
+  revision: fc2e6302bf4acd43abb68f07ad006b87f90c05c0
+  specs:
+    goliath (1.0.1)
+      async-rack
+      em-synchrony (>= 1.0.0)
+      em-websocket
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (= 0.5.3)
+      log4r
+      multi_json
+      rack (>= 1.2.2)
+      rack-contrib
+      rack-respond_to
+
 GEM
   remote: http://rubygems.org/
   specs:
-    eventmachine-le (1.1.4)
-    eventmachine_httpserver (0.2.1)
+    addressable (2.3.2)
+    async-rack (0.5.1)
+      rack (~> 1.1)
+    cookiejar (0.3.0)
+    em-socksify (0.2.1)
+      eventmachine (>= 1.0.0.beta.4)
+    em-websocket (0.3.8)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+    eventmachine (1.0.0)
+    http_parser.rb (0.5.3)
+    log4r (1.1.10)
+    multi_json (1.3.7)
+    rack (1.4.1)
+    rack-accept-media-types (0.9)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
+    rack-respond_to (0.9.8)
+      rack-accept-media-types (>= 0.6)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  eventmachine-le
-  eventmachine_httpserver
+  em-http-request!
+  em-synchrony!
+  goliath!
+  yajl-ruby

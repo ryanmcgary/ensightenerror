@@ -1,29 +1,10 @@
-require 'rubygems'
-require 'eventmachine'
-require 'evma_httpserver'
+require 'goliath'
+require 'em-synchrony/em-http'
+require 'em-http/middleware/json_response'
+require 'yajl'
 
-class Handler  < EventMachine::Connection
-  include EM::HttpServer
-  # include EM::Deferrable
-
-  def process_http_request
-    resp = EM::DelegatedHttpResponse.new( self )
-    resp.status = 204
-    resp.send_response
-   
-    
-    # EM.add_timer(1) do
-    #   puts @http_query_string    
-    # end
-      
+class Hello < Goliath::API
+  def response(env)
+    [204, {}, "Hello World"]
   end
-
 end
-
-# EM.epoll
-EM.run{
-  host, port = "0.0.0.0", ENV['PORT']
-  puts "Starting on #{host}:#{port}..."
-  EventMachine::start_server(host, port, Handler)
-}
-

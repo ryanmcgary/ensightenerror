@@ -1,1 +1,1 @@
-web: bundle exec ruby app.rb -sv -e prod -p $PORT
+web: bundle exec foreman start -c web=3 --procfile ./Procfile2

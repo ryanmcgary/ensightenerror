@@ -25,7 +25,7 @@ require 'yajl'
 #   end
 # end
 
-connections = Array.new
+# connections = Array.new
 
 def parse_sse(env)
   EM.add_periodic_timer(1) { env.stream_send("data:hello ##{rand(100)}\n\n") }
@@ -43,12 +43,12 @@ class SSE < Goliath::API
   def response(env)
     case env['PATH_INFO']
       when '/events' then 
-        connections["a"] = [] << env
+        # connections["a"] = [] << env
 
-        parse_sse(connections["a"])
+        # parse_sse(connections["a"])
     else
       logger.info("not /events")
-      [200, {}, "Hello World"]
+      [204, {}, "Hello World"]
     end  
   end
 

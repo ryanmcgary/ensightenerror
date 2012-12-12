@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+test
+
+<script type="text/javascript">
+var source = new EventSource('http://localtest.com:3002/events');
+
+source.addEventListener('message', function(e) {
+  console.log(e.data);
+}, false);
+
+source.addEventListener('user_login', function(e) {  
+  console.log(e.data);
+}, false);
+
+source.addEventListener('open', function(e) {
+  console.log("Connection opened", e.data)// Connection was opened.
+}, false);
+
+source.addEventListener('error', function(e) {
+  if (source.readyState == EventSource.CLOSED) {
+    // Connection was closed.
+  }
+}, false);
+</script>
+</body>
+</html>
